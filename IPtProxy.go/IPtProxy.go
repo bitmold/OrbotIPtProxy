@@ -374,7 +374,7 @@ func StartSocks(packetFlow PacketFlow, proxyHost string, proxyPort int) {
 	if packetFlow != nil {
 		lwipStack = core.NewLWIPStack()
 		core.RegisterTCPConnHandler(socks.NewTCPHandler(proxyHost, uint16(proxyPort)))
-		core.RegisterUDPConnHandler(socks.NewUDPHandler(proxyHost, uint16(proxyPort), 2*time.Minute))
+		//core.RegisterUDPConnHandler(socks.NewUDPHandler(proxyHost, uint16(proxyPort), 2*time.Minute))
 		core.RegisterOutputFn(func(data []byte) (int, error) {
 			packetFlow.WritePacket(data)
 			return len(data), nil
