@@ -1,4 +1,12 @@
-# IPtProxy
+# Orbot IPtProxy
+
+This is a fork of the original IPtProxy that includes additional functionality (go-tun2socks) needed for Orbot specifically.
+
+This is needed due to the fact that an Android app may only have one bundled gomobile built AAR at a time.
+
+All updates from the primary IPtProxy project (https://github.com/tladesignz/IPtProxy) will be merged. 
+
+## IPtProxy
 
 Obfs4proxy and Snowflake Pluggable Transports for iOS and Android
 
