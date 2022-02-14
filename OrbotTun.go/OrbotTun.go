@@ -22,6 +22,13 @@ func InputPacket(data []byte) {
 	}
 }
 
+// Start the lwIP stack
+// 
+// @param packetFlow an instance of the PacketFlow interface
+//
+// @param proxyHost host IP address of SOCKS proxy
+// 
+// @param proxyPort port for local SOCKS proxy
 func StartSocks(packetFlow PacketFlow, proxyHost string, proxyPort int) {
 	if packetFlow != nil {
 		lwipStack = core.NewLWIPStack()

@@ -1,9 +1,9 @@
 #!/bin/sh
 
-TARGET=android
-OUTPUT=IPtProxy.aar
-
 git submodule update --init --recursive
+
+rm -f OrbotLib.aar
+rm -f OrbotLib-sources.jar
 
 cd IPtProxy
 git clean -f
@@ -19,6 +19,8 @@ patch --directory=snowflake --strip=1 < snowflake.patch
 
 cd ..
 cp OrbotTun.go/* IPtProxy/IPtProxy.go/
+
+
 cd IPtProxy/IPtProxy.go
 printf '\n\n--- Compile %s...\n' "$OUTPUT"
 export PATH=~/go/bin:$PATH
