@@ -41,3 +41,11 @@ func StartSocks(packetFlow PacketFlow, proxyHost string, proxyPort int) {
 	}
 }
 
+func StopSocks () {
+	if (lwipStack != nil) {
+                lwipStack = nil
+                core.RegisterTCPConnHandler(nil)
+                core.RegisterUDPConnHandler(nil)
+                core.RegisterOutputFn(nil)
+	}
+}
