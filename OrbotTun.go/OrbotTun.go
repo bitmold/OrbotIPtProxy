@@ -30,7 +30,7 @@ func InputPacket(data []byte) {
 // 
 // @param proxyPort port for local SOCKS proxy
 func StartSocks(packetFlow PacketFlow, proxyHost string, proxyPort int) {
-	if packetFlow != nil {
+	if packetFlow != nil && lwipStack == nil {
 		lwipStack = core.NewLWIPStack()
 		core.RegisterTCPConnHandler(socks.NewTCPHandler(proxyHost, uint16(proxyPort)))
 		core.RegisterUDPConnHandler(NewUDPHandler())
@@ -40,4 +40,15 @@ func StartSocks(packetFlow PacketFlow, proxyHost string, proxyPort int) {
 		})
 	}
 }
+
+
+// Stop the lwIP Stack if running
+func StopSocks() {
+	if lwipStack != nil {
+		lwipStack.Close();
+		lwipStack = nil
+	}
+}
+
+
 
