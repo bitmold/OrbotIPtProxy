@@ -47,6 +47,9 @@ func StopSocks() {
 	if lwipStack != nil {
 		lwipStack.Close();
 		lwipStack = nil
+		core.RegisterTCPConnHandler(nil)
+		core.RegisterUDPConnHandler(nil)
+		core.RegisterOutputFn(nil)
 	}
 }
 
