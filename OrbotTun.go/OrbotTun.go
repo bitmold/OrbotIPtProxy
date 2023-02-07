@@ -41,14 +41,12 @@ func StartSocks(packetFlow PacketFlow, proxyHost string, proxyPort int) {
 	}
 }
 
-
-// Stop the lwIP Stack if running
-func StopSocks() {
-	if lwipStack != nil {
+func StopSocks () {
+	if (lwipStack != nil) {
 		lwipStack.Close();
-		lwipStack = nil
+                lwipStack = nil
+                core.RegisterTCPConnHandler(nil)
+                core.RegisterUDPConnHandler(nil)
+                core.RegisterOutputFn(nil)
 	}
 }
-
-
-
