@@ -1,17 +1,26 @@
 #!/bin/sh
 
-git submodule update --init --recursive
-
 rm -f OrbotLib.aar
 rm -f OrbotLib-sources.jar
 
-cd IPtProxy
-git clean -f
-cd obfs4 || exit 1
-git reset --hard
-cd ../snowflake || exit 1
-git reset --hard
-cd ..
+if [ -d IPtProxy ]; then
+  cd IPtProxy
+  git clean -f
+fi
+
+if [ -d obfs4 ]; then
+  cd obfs4 || exit 1
+  git reset --hard
+  cd ..
+fi
+
+if [ -d snowflake ]; then
+  cd snowflake || exit 1
+  git reset --hard
+  cd ..
+fi
+
+git submodule update --init --recursive
 
 printf '\n\n--- Apply patches to Obfs4proxy and Snowflake...\n'
 patch --directory=obfs4 --strip=1 < obfs4.patch
