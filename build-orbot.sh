@@ -27,7 +27,7 @@ patch --directory=obfs4 --strip=1 < obfs4.patch
 patch --directory=snowflake --strip=1 < snowflake.patch
 
 cd ..
-cp OrbotTun.go/* IPtProxy/IPtProxy.go/
+cp OrbotTun.go/* IPtProxy/IPtProxy.go/ -v
 
 
 cd IPtProxy/IPtProxy.go
