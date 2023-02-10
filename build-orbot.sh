@@ -34,5 +34,5 @@ cd IPtProxy/IPtProxy.go
 printf '\n\n--- Compile %s...\n' "$OUTPUT"
 export PATH=~/go/bin:$PATH
 gomobile init 
-gomobile bind -o ../../OrbotLib.aar -v
+gomobile bind -o ../../OrbotLib.aar -v -trimpath
 printf '\n\nDone\n'
