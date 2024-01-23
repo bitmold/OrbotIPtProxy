@@ -3,6 +3,9 @@
 rm -f ../OrbotLib.aar
 rm -f ../OrbotLib-sources.jar
 
+# should match Orbot's...
+export MIN_ANDROID_SDK=24
+
 if [ -d IPtProxy ]; then
   cd IPtProxy
   git clean -f
@@ -45,6 +48,6 @@ printf '\n\n--- Compile %s...\n' "$OUTPUT"
 export PATH=~/go/bin:$PATH
 cd "$TEMPDIR/IPtProxy.go" || exit 1
 gomobile init 
-gomobile bind -o "OrbotLib.aar" -target=android -androidapi=33 -v -trimpath
+gomobile bind -o "OrbotLib.aar" -target=android -androidapi="$MIN_ANDROID_SDK" -v -trimpath
 cp -v OrbotLib* "$CURRENT/../.."
 printf '\n\nDone\n'
