@@ -6,8 +6,8 @@ rm -f OrbotLib-sources.jar
 if [ -d IPtProxy ]; then
   cd IPtProxy
   git clean -f
-  if [ -d obfs4 ]; then
-    cd obfs4
+  if [ -d lyrebird ]; then
+    cd lyrebird
     git reset --hard
     cd ..
   fi
@@ -25,11 +25,11 @@ else
 fi
 
 printf '\n\n--- Apply patches to Obfs4proxy and Snowflake...\n'
-patch --directory=obfs4 --strip=1 < obfs4.patch
+patch --directory=lyrebird --strip=1 < lyrebird.patch
 patch --directory=snowflake --strip=1 < snowflake.patch
 
 cd ..
-cp OrbotTun.go/* IPtProxy/IPtProxy.go/ -v
+cp OrbotTun.go/* IPtProxy/IPtProxy.go/
 
 
 cd IPtProxy/IPtProxy.go
