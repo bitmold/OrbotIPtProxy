@@ -1,7 +1,7 @@
 #!/bin/sh
 
-rm -f OrbotLib.aar
-rm -f OrbotLib-sources.jar
+rm -f ../OrbotLib.aar
+rm -f ../OrbotLib-sources.jar
 
 if [ -d IPtProxy ]; then
   cd IPtProxy
@@ -24,7 +24,7 @@ else
   cd IPtProxy || exit 1
 fi
 
-printf '\n\n--- Apply patches to Obfs4proxy and Snowflake...\n'
+printf '\n\n--- Apply patches to lyrebird and snowflake...\n'
 patch --directory=lyrebird --strip=1 < lyrebird.patch
 patch --directory=snowflake --strip=1 < snowflake.patch
 
@@ -36,5 +36,5 @@ cd IPtProxy/IPtProxy.go
 printf '\n\n--- Compile %s...\n' "$OUTPUT"
 export PATH=~/go/bin:$PATH
 gomobile init 
-gomobile bind -o - ../../OrbotLib.aar -target=android -androidapi=19 -v -trimpath
+gomobile bind -o "../../../OrbotLib.aar" -target=android -androidapi=19 -v -trimpath
 printf '\n\nDone\n'
