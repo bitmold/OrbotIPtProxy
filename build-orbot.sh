@@ -45,6 +45,6 @@ printf '\n\n--- Compile %s...\n' "$OUTPUT"
 export PATH=~/go/bin:$PATH
 cd "$TEMPDIR/IPtProxy.go" || exit 1
 gomobile init 
-gomobile bind -o "OrbotLib.aar" -target=android -androidapi=19 -v -trimpath
+gomobile bind -o "OrbotLib.aar" -target=android -androidapi=33 -v -trimpath
 cp -v OrbotLib* "$CURRENT/../.."
 printf '\n\nDone\n'
