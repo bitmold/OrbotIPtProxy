@@ -35,6 +35,15 @@ patch --directory=snowflake --strip=1 < snowflake.patch
 cd ..
 cp OrbotTun.go/* IPtProxy/IPtProxy.go/
 
+if test -d "$TMPDIR"; then
+    :
+elif test -d "$TMP"; then
+    TMPDIR=$TMP
+elif test -d /var/tmp; then
+    TMPDIR=/var/tmp
+else
+    TMPDIR=/tmp
+fi
 
 TEMPDIR="$TMPDIR/IPtProxy"
 printf '\n\n--- Prepare build environment at %s...\n' "$TEMPDIR"
