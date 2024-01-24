@@ -4,7 +4,7 @@ rm -f ../OrbotLib.aar
 rm -f ../OrbotLib-sources.jar
 
 # should match Orbot's...
-export MIN_ANDROID_SDK=23
+export MIN_ANDROID_SDK=21
 
 if [ -d IPtProxy ]; then
   cd IPtProxy
