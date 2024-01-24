@@ -48,6 +48,6 @@ printf '\n\n--- Compile %s...\n' "$OUTPUT"
 export PATH=~/go/bin:$PATH
 cd "$TEMPDIR/IPtProxy.go" || exit 1
 gomobile init 
-gomobile bind -o "OrbotLib.aar" -target=android -androidapi="$MIN_ANDROID_SDK" -v -trimpath
+gomobile bind -o "OrbotLib.aar" -ldflags="-w -s" -target=android -androidapi="$MIN_ANDROID_SDK" -v -trimpath
 cp -v OrbotLib* "$CURRENT/../.."
 printf '\n\nDone\n'
