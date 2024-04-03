@@ -8,14 +8,17 @@ export MIN_ANDROID_SDK=23
 
 if [ -d IPtProxy ]; then
   cd IPtProxy
-  git clean -f
+  git clean -fdx
+  git reset --hard
   if [ -d lyrebird ]; then
     cd lyrebird
+    git clean -fdx
     git reset --hard
     cd ..
   fi
   if [ -d snowflake ]; then
     cd snowflake
+    git clean -fdx
     git reset --hard
     cd ..
   fi
@@ -47,7 +50,10 @@ fi
 
 TEMPDIR="$TMPDIR/IPtProxy"
 printf '\n\n--- Prepare build environment at %s...\n' "$TEMPDIR"
-cd IPtProxy
+cd IPtProxy/IPtProxy.go
+go mod tidy
+go get golang.org/x/mobile/bind
+cd ..
 CURRENT=$PWD
 rm -rf "$TEMPDIR"
 mkdir -p "$TEMPDIR"
