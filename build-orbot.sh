@@ -10,14 +10,12 @@ if [ -d IPtProxy ]; then
   cd IPtProxy
   git clean -fdx
   git reset --hard
+  cd ..
   git submodule update --init --recursive
 else
   git submodule update --init --recursive
-  cd IPtProxy || exit 1
 fi
 
-
-cd ..
 cp OrbotTun.go/* IPtProxy/IPtProxy.go/
 
 if test -d "$TMPDIR"; then
@@ -46,5 +44,5 @@ export PATH=~/go/bin:$PATH
 cd "$TEMPDIR/IPtProxy.go" || exit 1
 gomobile init 
 gomobile bind -o "OrbotLib.aar" -ldflags="-w -s -checklinkname=0" -target=android -androidapi="$MIN_ANDROID_SDK" -v -trimpath
-cp -v OrbotLib* "$CURRENT/.."
+cp -v OrbotLib* "$CURRENT/../.."
 printf '\n\nDone\n'
