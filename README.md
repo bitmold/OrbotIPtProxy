@@ -1,3 +1,8 @@
+## This project was once used to bundle IPtProxy (lyrebird, snowflake, meek) with go-tun2socks for use in Orbot (since `gomobile` required everything compiled as one module. Orbot now uses IPtProxy directly, and uses the C library for VPN tunneling [hev-socks5-tunnel](https://github.com/heiher/hev-socks5-tunnel.git). I'm keeping this here for archival purposes....
+
+
+Original README.md:
+
 # Orbot IPtProxy
 
 This extends IPtProxy that includes additional functionality (go-tun2socks) needed for Orbot specifically.
